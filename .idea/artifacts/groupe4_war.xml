@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="groupe4:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>groupe4</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="groupe4.war">
+      <element id="artifact" artifact-name="groupe4:war exploded" />
+    </root>
+  </artifact>
+</component>
