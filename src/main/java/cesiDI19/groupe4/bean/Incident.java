@@ -5,16 +5,14 @@ import java.util.Date;
 public class Incident {
 	
 	private Integer Id;
-    private String Declarant_Incident;
-    private String Lieu_Incident;
-    private Date Date_Incident;
-    private String Description_Incident;
+    private String DeclarantIncident;
+    private String LieuIncident;
+    private Date AjoutIncident;
+    private String DescriptionIncident;
 	
 	public Incident() {
     	
     }
-	
-	
 
     public Integer getId() {
         return Id;
@@ -24,37 +22,37 @@ public class Incident {
         Id = id;
     }
 
-    public String getDeclarant_Incident() {
-        return Declarant_Incident;
+    public String getDeclarantIncident() {
+        return DeclarantIncident;
     }
 
-    public void setDeclarant_Incident(String declarant_incident) {
-        Declarant_Incident = declarant_incident;
-
-    }
-    
-    public String getLieu_Incident() {
-        return Lieu_Incident;
-    }
-
-    public void setLieu_Incident(String lieu_incident) {
-        Lieu_Incident = lieu_incident;
+    public void setDeclarantIncident(String declarantincident) {
+        DeclarantIncident = declarantincident;
 
     }
     
-    public Date getDate_Incident() {
-        return Date_Incident;
+    public String getLieuIncident() {
+        return LieuIncident;
     }
 
-    public void setDate_Incident(Date date_incident) {
-        Date_Incident = date_incident;
+    public void setLieuIncident(String lieuincident) {
+        LieuIncident = lieuincident;
+
     }
     
-    public String getDescription_Incident() {
-        return Description_Incident;
+    public Date getAjoutIncident() {
+        return AjoutIncident;
     }
 
-    public void setDescritpion(String description_incident) {
-        Description_Incident = description_incident;
+    public void setAjoutIncident(Date ajoutincident) {
+        AjoutIncident = ajoutincident;
+    }
+    
+    public String getDescriptionIncident() {
+        return DescriptionIncident;
+    }
+
+    public void setDescriptionIncident(String descriptionincident) {
+        DescriptionIncident = descriptionincident;
     }
 }
