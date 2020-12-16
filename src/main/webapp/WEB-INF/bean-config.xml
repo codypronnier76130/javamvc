@@ -18,6 +18,14 @@
       <property name="username" value="louvel"/>
       <property name="password" value="Vuxec654"/>
    </bean>
+
+   <bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate">
+	   <property name="dataSource" ref="ds"></property>
+   </bean>
+
+   <bean id="missionServices" class="com.javatpoint.missionService.MissionDao">
+	   <property name="template" ref="jt"></property>
+   </bean>
    
    <context:annotation-config />
 	<context:component-scan

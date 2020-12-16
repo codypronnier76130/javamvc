@@ -21,4 +21,19 @@ public class MissionServices {
 			return null;
 		}
 	}
+
+	public void save(Mission mission) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void update(Mission mission) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
 }

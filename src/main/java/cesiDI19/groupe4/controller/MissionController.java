@@ -1,9 +1,14 @@
 package cesiDI19.groupe4.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import cesiDI19.groupe4.bean.Mission;
@@ -23,4 +28,29 @@ public class MissionController {
 		
         return "mission";
     }
+	
+	@RequestMapping(value ="/save", method = RequestMethod.POST)
+	public String save(@ModelAttribute("mission") Mission mission) {
+		missionServices.save(mission);
+		return "redirect:/viewmission"; //redirige vers viewmission request mapping
+	}
+	
+	@RequestMapping("/viewmission")
+	public String viewmission(Model m) {
+		List<Mission> list = (List<Mission>) missionServices.getMission();
+		m.addAttribute("list", list);
+		return "viewmission";
+	}
+	
+	@RequestMapping(value="editsave", method = RequestMethod.POST)
+	public String editsave(@ModelAttribute("mission") Mission mission) {
+		missionServices.update(mission);
+		return "redirect:/viewmission";
+	}
+	
+	@RequestMapping(value="deletemission/{id}", method = RequestMethod.GET)
+	public String delete(@PathVariable int id) {
+		missionServices.delete(id);
+		return"redirect:/viewmission";
+	}
 }

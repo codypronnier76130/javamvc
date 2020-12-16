@@ -7,17 +7,44 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import cesiDI19.groupe4.bean.Mission;
 
 @Component
+@Repository
 public class MissionDao {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	
+public void setTemplate(JdbcTemplate template) {
+	this.jdbcTemplate = template;
+}
+
+public int save (Mission p) {
+	String sql = "insert into MISSION(titre_mission, type_mission, date_debut_mission, date_fin_mission, niveau_mission, itineraire_mission, detail_mission)"
+			+ " + values('"+p.getTitre_Mission()+"',"+p.getType_Mission()+","+p.getDate_Debut_Mission()+","+p.getDate_Fin_Mission()+","+p.getNiveau_Mission()+","+p.getItineraire_Mission()+",'"+p.getDetail_Mission()+"')";
+	return jdbcTemplate.update(sql);
+}
+
+public int update (Mission p) {
+	String sql = "update MISSION set titre_mission='"+p.getTitre_Mission()+"', type_mission="+p.getType_Mission()+",date_debut_mission="+p.getDate_Debut_Mission()+",date_fin_mission="+p.getDate_Fin_Mission()+",niveau_mission="+p.getNiveau_Mission()+",itineraire_mission"+p.getItineraire_Mission()+",detail_mission'"+p.getDetail_Mission()+"')";
+	return jdbcTemplate.update(sql);
+}
+
+public int delete(int id) {
+	String sql = "delete from MISSION where id="+id+"";
+			return jdbcTemplate.update(sql);
+}
+
+public Mission getMissionById(int id) {
+	String sql = "select * from MISSION where id=?";
+	return jdbcTemplate.queryForObject(sql, new Object[] {id}, new BeanPropertyRowMapper<Mission>(Mission.class));
+}
 	
 	public List<Mission> getAllMissions(int page, int longueurPage){
 		
