@@ -7,7 +7,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Home</title>
+        <title>Civils</title>
     </head>
     <body>
         <h1>Hello <c:out value="${civil.nom} ${civil.prenom} "></c:out></h1>
