@@ -39,10 +39,10 @@ public class RapportDao {
 			// TODO Auto-generated method stub
 			Rapport rapport = new Rapport();
 			rapport.setId(rs.getInt("ID_RAPPORT"));
-			rapport.setStatus(rs.getString("STATUS_RAPPORT"));
+			rapport.setStatus_Rapport(rs.getString("STATUS_RAPPORT"));
 		
 
-			return civil;
+			return rapport;
 		}	
 	}
 }
