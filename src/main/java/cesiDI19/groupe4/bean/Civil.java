@@ -8,7 +8,7 @@ public class Civil {
     private String Nom;
     private String Prenom;
     private Date DateNaiss;
-    private String Addresse;
+    private String Adresse;
     private String Email;
     private String TelephoneNumber;
     private Boolean Actifs;
@@ -50,12 +50,12 @@ public class Civil {
         DateNaiss = dateNaiss;
     }
 
-    public String getAddresse() {
-        return Addresse;
+    public String getAdresse() {
+        return Adresse;
     }
 
-    public void setAddresse(String addresse) {
-        Addresse = addresse;
+    public void setAdresse(String addresse) {
+        Adresse = addresse;
     }
 
     public String getEmail() {
