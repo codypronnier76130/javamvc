@@ -10,7 +10,7 @@
     <title>Hero</title>
 </head>
 <body>
-
+<h1>Hello <c:out value="${heros.nom_Super} ${heros.pouvoir_Super} "></c:out></h1>
 <p>This is the hero page!</p>
 </body>
 </html>
