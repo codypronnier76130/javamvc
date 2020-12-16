@@ -24,10 +24,9 @@ public class VilainDao {
         List<Vilain> list = new ArrayList<Vilain>();
 
         try {
-            list = jdbcTemplate.query("SELECT HEROS.ID_HEROS,HEROS.ID_CIVIL,HEROS.ID_SUPER,NOM_CIVIL,PRENOM_CIVIL,DATE_NAISSANCE_CIVIL,ADRESSE_CIVIL,MAIL_CIVIL,TELEPHONE_CIVIL,ACTIF_CIVIL,COMMENTAIRE_CIVIL,NOM_SUPER,POUVOIR_SUPER,POINT_FAIBLE_SUPER,COMMENTAIRE_SUPER FROM HEROS " +
-                            "INNER JOIN CIVIL ON (HEROS.ID_HEROS = CIVIL.ID_HEROS) " +
-                            "INNER JOIN SUPER ON (HEROS.ID_HEROS = SUPER.ID_HEROS) " +
-                            "WHERE HEROS.ID_SUPER= SUPER.ID_SUPER AND HEROS.ID_CIVIL = CIVIL.ID_CIVIL"
+            list = jdbcTemplate.query("SELECT VILAIN.ID_VIILAIN,VILAIN.ID_CIVIL,VILAIN.ID_SUPER,NOM_CIVIL,PRENOM_CIVIL,DATE_NAISSANCE_CIVIL,ADRESSE_CIVIL,MAIL_CIVIL,TELEPHONE_CIVIL,COMMENTAIRE_CIVIL,NOM_SUPER,POUVOIR_SUPER,POINT_FAIBLE_SUPER,COMMENTAIRE_SUPER,MALVEILLANCE_VILAIN FROM VILAIN " +
+                            "INNER JOIN CIVIL ON (VILAIN.ID_VIILAIN = CIVIL.ID_VIILAIN) " +
+                            "INNER JOIN SUPER ON (VILAIN.ID_VIILAIN = SUPER.ID_VIILAIN) "
                     , new Object[] {}, new VilainMapper());
         }catch(EmptyResultDataAccessException e) {
             // no result
@@ -42,12 +41,12 @@ public class VilainDao {
         public Vilain mapRow(ResultSet rs, int rowNum) throws SQLException {
             // TODO Auto-generated method stub
             Vilain vilain = new Vilain();
-            vilain.setId(rs.getInt("HEROS.ID_HEROS"));
-            vilain.setId_Super(rs.getInt("HEROS.ID_SUPER"));
-            vilain.setId_Civil(rs.getInt("HEROS.ID_CIVIL"));
+            vilain.setId(rs.getInt("VILAIN.ID_VIILAIN"));
+            vilain.setId_Super(rs.getInt("VILAIN.ID_SUPER"));
+            vilain.setId_Civil(rs.getInt("VILAIN.ID_CIVIL"));
             vilain.setNom(rs.getString("NOM_CIVIL"));
             vilain.setPrenom(rs.getString("PRENOM_CIVIL"));
-            vilain.setDateNaiss(rs.getDate("DATE_NAISSANCE_CIVIL"));
+            //vilain.setDateNaiss(rs.getDate("DATE_NAISSANCE_CIVIL"));
             vilain.setAddresse(rs.getString("ADRESSE_CIVIL"));
             vilain.setEmail(rs.getString("MAIL_CIVIL"));
             vilain.setTelephoneNumber(rs.getString("TELEPHONE_CIVIL"));
@@ -59,6 +58,8 @@ public class VilainDao {
             vilain.setPouvoir_Super(rs.getString("POUVOIR_SUPER"));
             vilain.setPoint_Faible(rs.getString("POINT_FAIBLE_SUPER"));
             vilain.setCommentaire(rs.getString("COMMENTAIRE_SUPER"));
+
+            vilain.setMalveillance(rs.getInt("MALVEILLANCE_VILAIN"));
             return vilain;
         }
     }
