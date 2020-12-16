@@ -1,3 +1,4 @@
+  
 package cesiDI19.groupe4.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,4 +27,3 @@ public class OrganisationController {
         return "organisation";
     }
 }
-

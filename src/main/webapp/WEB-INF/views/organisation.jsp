@@ -7,10 +7,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Civils</title>
+        <title>Organisations</title>
     </head>
     <body>
-        <h1>Hello <c:out value="${civil.nom} ${civil.prenom} "></c:out></h1>
-        <p>This is the homepage!</p>
+        <h1>Hello <c:out value="${organisation.nom} ${organisation.commentaires} "></c:out></h1>
+        <p>Page des organisations</p>
     </body>
 </html>

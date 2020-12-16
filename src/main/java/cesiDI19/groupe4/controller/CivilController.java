@@ -26,4 +26,3 @@ public class CivilController {
         return "civil";
     }
 }
-

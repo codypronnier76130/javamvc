@@ -43,7 +43,7 @@ public class OrganisationDao {
 			organisation.setAdresse(rs.getString("ADRESSE_ORGANISATION"));
 			organisation.setCommentaires(rs.getString("COMMENTAIRE_ORGANISATION"));
 			organisation.setAjoutOrg(rs.getDate("DATE_AJOUT_ORGANISATION"));
-			organisation.setDerniereModif(rs.getDate("DATE_DERNIERE_MODIF_ORGANISATION"));
+			organisation.setDerniereModif(rs.getDate("DATE_DERNIERE_MODIFICATION_ORGANISATION"));
 			
 			return organisation;
 		}	
