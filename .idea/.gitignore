@@ -2,7 +2,7 @@
 /shelf/
 /workspace.xml
 # Datasource local storage ignored files
-/../../../../../../../:\Users\Utilisateur\git\repository\groupe4\.idea/dataSources/
+/../../../../:\Projet\javamvc\.idea/dataSources/
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
