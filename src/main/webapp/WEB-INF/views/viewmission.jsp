@@ -6,19 +6,19 @@
   
 <h1>Liste des missions</h1>  
 <table border="2" width="70%" cellpadding="2">  
-<tr><th>Id</th><th>Titre</th><th>Type</th><th>Date de début</th><th>Date de fin</th><th>Niveau</th><th>Itineraire</th><th>Details</th><th>Edit</th><th>Delete</th></tr>  
+<tr><th>Id</th><th>Titre</th><th>Type</th><th>Date de début</th><th>Date de fin</th><th>Niveau</th><th>Itineraire</th><th>Details</th><th>Modifier</th><th>Supprimer</th></tr>  
    <c:forEach var="mission" items="${list}">   
    <tr>  
-   <td>${mission.id_mission}</td>  
-   <td>${mission.titre_mission}</td>  
-   <td>${mission.type_mission}</td>  
-   <td>${mission.date_debut_mission}</td>  
-   <td>${mission.date_fin_mission}</td>
-   <td>${mission.niveau_mission}</td>
-   <td>${mission.itineraire_mission}</td>
-   <td>${mission.detail_mission}</td>        
-   <td><a href="editmission/${mission.id_mission}">Modifier</a></td>  
-   <td><a href="deletemission/${mission.id_mission}">Supprimer</a></td>  
+   <td>${mission.id}</td>  
+   <td>${mission.titre}</td>  
+   <td>${mission.type}</td>  
+   <td>${mission.date_debut}</td>  
+   <td>${mission.date_fin}</td>
+   <td>${mission.niveau}</td>
+   <td>${mission.itineraire}</td>
+   <td>${mission.detail}</td>        
+   <td><a href="editmission/${mission.id}">Modifier</a></td>  
+   <td><a href="deletemission/${mission.id}">Supprimer</a></td>  
    </tr>  
    </c:forEach>  
    </table>  

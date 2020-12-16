@@ -5,7 +5,7 @@
    "http://www.w3.org/TR/html4/loose.dtd">
    
            <h1>Modifier la fiche de mission</h1>  
-       <form:form method="POST" action="/groupe4/editsave">    
+       <form:form method="POST" action="/javamvc/editsave">    
         <table >    
         <tr>  
         <td></td>    
