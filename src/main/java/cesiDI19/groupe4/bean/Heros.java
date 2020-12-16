@@ -9,7 +9,7 @@ public class Heros {
     private Integer Id_Civil;
     private String Nom_Super;
     private String Is_Super;
-    private Date Pouvoir_Super;
+    private String Pouvoir_Super;
     private String Point_Faible;
     private String Commentaire;
 
@@ -69,11 +69,11 @@ public class Heros {
         Is_Super = is_Super;
     }
 
-    public Date getPouvoir_Super() {
+    public String getPouvoir_Super() {
         return Pouvoir_Super;
     }
 
-    public void setPouvoir_Super(Date pouvoir_Super) {
+    public void setPouvoir_Super(String pouvoir_Super) {
         Pouvoir_Super = pouvoir_Super;
     }
 
