@@ -11,7 +11,7 @@ public class Heros {
     private String Is_Super;
     private String Pouvoir_Super;
     private String Point_Faible;
-    private String Commentaire;
+    private String Commentaire_Super;
 
     // Atribues de civil
     private String Nom;
@@ -22,6 +22,7 @@ public class Heros {
     private String TelephoneNumber;
     private Boolean Actifs;
     private String Commentaires;
+
 
     public Heros() {
 
@@ -85,12 +86,12 @@ public class Heros {
         Point_Faible = point_Faible;
     }
 
-    public String getCommentaire() {
-        return Commentaire;
+    public String getCommentaire_Super() {
+        return Commentaire_Super;
     }
 
-    public void setCommentaire(String commentaire) {
-        Commentaire = commentaire;
+    public void setCommentaire_Super(String commentaire_Super) {
+        Commentaire_Super = commentaire_Super;
     }
 
     public String getNom() {

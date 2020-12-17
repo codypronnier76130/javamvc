@@ -2,6 +2,7 @@ package cesiDI19.groupe4.services;
 
 import java.util.List;
 
+import cesiDI19.groupe4.bean.Mission;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,4 +22,20 @@ public class HeroService {
             return null;
         }
     }
+
+    public void createHero(Heros hero) {
+        // TODO Auto-generated method stub
+
+    }
+
+    public void update(Mission mission) {
+        // TODO Auto-generated method stub
+
+    }
+
+    public void delete(int id) {
+        // TODO Auto-generated method stub
+
+    }
+
 }
