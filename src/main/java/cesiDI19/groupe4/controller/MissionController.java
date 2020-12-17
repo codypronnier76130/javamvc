@@ -21,7 +21,11 @@ public class MissionController {
 	
 	@RequestMapping("mission")
 	public String showform(Model m) {
-		m.addAttribute("command", new Mission());
+		Mission mission = new Mission();
+		//TODO Récupérer la requête
+		mission.setId_incident(1);
+
+		m.addAttribute("mission", mission);
 		return "mission";
 	}
 	
@@ -41,10 +45,10 @@ public class MissionController {
 	@RequestMapping(value="/editmission/{id}")
 	public String edit(@PathVariable int id, Model m) {
 		Mission mission = dao.getMissionById(id);
-		m.addAttribute("command", mission);
+		m.addAttribute("mission", mission);
 		return "missionEdit";
 	}
-	
+
 	@RequestMapping(value="/editsave", method = RequestMethod.POST)
 	public String editsave(@ModelAttribute("mission") Mission mission) {
 		dao.update(mission);

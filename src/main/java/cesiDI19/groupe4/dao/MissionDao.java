@@ -3,8 +3,11 @@ package cesiDI19.groupe4.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.TimeZone;
 
+import com.mysql.cj.util.TimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -26,18 +29,34 @@ public void setTemplate(JdbcTemplate template) {
 }
 
 public int save (Mission p) {
-	String sql = "insert into MISSION(titre_mission, type_mission, date_debut_mission, date_fin_mission, niveau_mission, itineraire_mission, detail_mission)"
-			+ " + values('"+p.getTitre_Mission()+"',"+p.getType_Mission()+","+p.getDate_Debut_Mission()+","+p.getDate_Fin_Mission()+","+p.getNiveau_Mission()+","+p.getItineraire_Mission()+",'"+p.getDetail_Mission()+"')";
-	return jdbcTemplate.update(sql);
+	String sql = "INSERT INTO MISSION (ID_INCIDENT, TITRE_MISSION, TYPE_MISSION, DATE_DEBUT_MISSION, " +
+			"DATE_FIN_MISSION, NIVEAU_MISSION, ITINERAIRE_MISSION, DETAIL_MISSION)" +
+			" VALUES (?,?,?,?,?,?,?,?)";
+
+	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	dateFormat.setTimeZone(TimeZone.getDefault());
+
+	return jdbcTemplate.update(sql, p.getId_incident(), p.getTitre_Mission(), p.getType_Mission(), dateFormat.format(p.getDate_Debut_Mission()),
+			dateFormat.format(p.getDate_Fin_Mission()), p.getNiveau_Mission(), p.getItineraire_Mission(), p.getDetail_Mission());
 }
 
 public int update (Mission p) {
-	String sql = "UPDATE MISSION set titre_mission='"+p.getTitre_Mission()+"', "
-			+ "type_mission="+p.getType_Mission()+",date_debut_mission="+p.getDate_Debut_Mission()+","
-			+ "date_fin_mission="+p.getDate_Fin_Mission()+",niveau_mission="+p.getNiveau_Mission()+","
-			+ "itineraire_mission"+p.getItineraire_Mission()+",detail_mission'"+p.getDetail_Mission()+"'"
-			+ "where ID_MISSION="+p.getId()+"";
-	return jdbcTemplate.update(sql);
+	String sql = "UPDATE MISSION " +
+			"SET " +
+			"TITRE_MISSION=?," +
+			"TYPE_MISSION=?," +
+			"DATE_DEBUT_MISSION=?," +
+			"DATE_FIN_MISSION=?," +
+			"NIVEAU_MISSION=?," +
+			"ITINERAIRE_MISSION=?," +
+			"DETAIL_MISSION=? " +
+			"WHERE ID_MISSION = ?";
+
+	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	dateFormat.setTimeZone(TimeZone.getDefault());
+
+	return jdbcTemplate.update(sql, p.getTitre_Mission(), p.getType_Mission(), dateFormat.format(p.getDate_Debut_Mission()),
+			dateFormat.format(p.getDate_Fin_Mission()), p.getNiveau_Mission(), p.getItineraire_Mission(), p.getDetail_Mission(), p.getId());
 }
 
 public int delete(int id) {
@@ -46,7 +65,8 @@ public int delete(int id) {
 }
 
 public Mission getMissionById(int id) {
-	String sql = "SELECT * FROM MISSION where ID_MISSION=?";
+	String sql = "SELECT ID_MISSION as ID, ID_RAPPORT, ID_INCIDENT, TITRE_MISSION, TYPE_MISSION, DATE_DEBUT_MISSION, " +
+			"DATE_FIN_MISSION, NIVEAU_MISSION, ITINERAIRE_MISSION, DETAIL_MISSION FROM MISSION where ID_MISSION=?";
 	return jdbcTemplate.queryForObject(sql, new Object[] {id}, new BeanPropertyRowMapper<Mission>(Mission.class));
 }
 	
@@ -57,6 +77,7 @@ public Mission getMissionById(int id) {
 			// TODO Auto-generated method stub
 			Mission mission = new Mission();
 			mission.setId(rs.getInt("ID_MISSION"));
+			mission.setId_incident(rs.getInt("ID_INCIDENT"));
 			mission.setTitre_Mission(rs.getString("TITRE_MISSION"));
 			mission.setType_Mission(rs.getString("TYPE_MISSION"));
 			mission.setDate_Debut_Mission(rs.getDate("DATE_DEBUT_MISSION"));

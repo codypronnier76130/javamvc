@@ -1,15 +1,16 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
    <Title>Modification de la Mission</Title>
    
            <h1>Modifier la fiche de mission</h1>  
-       <form:form method="POST" action="editsave">    
-        <table >    
+       <form:form method="post" action="${pageContext.request.contextPath}/editsave" modelAttribute="mission">
+        <form:hidden path="id"  />
+        <form:hidden path="id_incident"  />
+        <table >
          <tr>    
           <td>Titre :</td>   
           <td><form:input path="titre_Mission"  /></td>  
