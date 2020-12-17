@@ -37,8 +37,8 @@ public class MissionController {
 	
 	@RequestMapping("/viewmission")
 	public String viewmission(Model m) {
-		List<Mission> list = (List<Mission>) missionServices.getMission();
-		m.addAttribute("list", list);
+		Mission mission = missionServices.getMission();
+		m.addAttribute("mission", mission);
 		return "viewmission";
 	}
 	
