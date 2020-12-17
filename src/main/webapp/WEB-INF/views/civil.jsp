@@ -12,5 +12,6 @@
     <body>
         <h1>Hello <c:out value="${civil.nom} ${civil.prenom} "></c:out></h1>
         <p>This is the homepage!</p>
+        
     </body>
 </html>

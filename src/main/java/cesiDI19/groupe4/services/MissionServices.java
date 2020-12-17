@@ -14,7 +14,7 @@ public class MissionServices {
 	MissionDao missionDao;
 	
 	public Mission getMission() {
-	List <Mission> listMission = missionDao.getAllMissions(0, 20);
+	List <Mission> listMission = missionDao.getAllMission();
 		if (listMission != null && listMission.size()>0){
 			return listMission.get(0);
 		} else {
@@ -22,18 +22,4 @@ public class MissionServices {
 		}
 	}
 
-	public void save(Mission mission) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void update(Mission mission) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void delete(int id) {
-		// TODO Auto-generated method stub
-		
-	}
 }
