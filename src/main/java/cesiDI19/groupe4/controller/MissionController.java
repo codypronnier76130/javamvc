@@ -42,7 +42,7 @@ public class MissionController {
 	public String edit(@PathVariable int id, Model m) {
 		Mission mission = dao.getMissionById(id);
 		m.addAttribute("command", mission);
-		return "editmission";
+		return "missionEdit";
 	}
 	
 	@RequestMapping(value="/editsave", method = RequestMethod.POST)

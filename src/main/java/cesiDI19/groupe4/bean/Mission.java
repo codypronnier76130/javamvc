@@ -82,5 +82,9 @@ public class Mission {
     public void setDetail_Mission(String detail_mission) {
     	Detail_Mission = detail_mission;
     }
-	
+
+	public Mission getMissionById(int id2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

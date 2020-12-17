@@ -2,11 +2,11 @@ package cesiDI19.groupe4.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
+
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -32,23 +32,22 @@ public int save (Mission p) {
 }
 
 public int update (Mission p) {
-	String sql = "update MISSION set titre_mission='"+p.getTitre_Mission()+"', type_mission="+p.getType_Mission()+",date_debut_mission="+p.getDate_Debut_Mission()+",date_fin_mission="+p.getDate_Fin_Mission()+",niveau_mission="+p.getNiveau_Mission()+",itineraire_mission"+p.getItineraire_Mission()+",detail_mission'"+p.getDetail_Mission()+"')";
+	String sql = "update MISSION set titre_mission='"+p.getTitre_Mission()+"', type_mission="+p.getType_Mission()+",date_debut_mission="+p.getDate_Debut_Mission()+",date_fin_mission="+p.getDate_Fin_Mission()+",niveau_mission="+p.getNiveau_Mission()+",itineraire_mission"+p.getItineraire_Mission()+",detail_mission'"+p.getDetail_Mission()+"' where id="+p.getId()+"";
 	return jdbcTemplate.update(sql);
 }
 
 public int delete(int id) {
-	String sql = "delete from MISSION where id="+id+"";
+	String sql = "delete from MISSION where id_mission="+id+"";
 			return jdbcTemplate.update(sql);
 }
 
 public Mission getMissionById(int id) {
-	String sql = "select * from MISSION where id=?";
+	String sql = "select * from MISSION where id_mission=?";
 	return jdbcTemplate.queryForObject(sql, new Object[] {id}, new BeanPropertyRowMapper<Mission>(Mission.class));
 }
 	
 	public List<Mission> getAllMission(){
 		return jdbcTemplate.query("select * from MISSION", new RowMapper<Mission>() {
-				
 		@Override
 		public Mission mapRow(ResultSet rs, int rowNum) throws SQLException {
 			// TODO Auto-generated method stub
@@ -66,10 +65,4 @@ public Mission getMissionById(int id) {
 		}
 	});
 }
-	
-
-	public List<Mission> getAllMissions(int i, int j) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
