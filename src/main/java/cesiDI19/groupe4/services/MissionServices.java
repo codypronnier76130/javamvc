@@ -14,7 +14,7 @@ public class MissionServices {
 	MissionDao missionDao;
 	
 	public Mission getMission() {
-	List <Mission> listMission = missionDao.getAllMission();
+	List <Mission> listMission = missionDao.getAllMissions();
 		if (listMission != null && listMission.size()>0){
 			return listMission.get(0);
 		} else {

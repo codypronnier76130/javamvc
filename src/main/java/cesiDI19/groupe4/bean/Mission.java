@@ -83,8 +83,4 @@ public class Mission {
     	Detail_Mission = detail_mission;
     }
 
-	public Mission getMissionById(int id2) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
