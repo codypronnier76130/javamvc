@@ -10,16 +10,16 @@
 <tr><th>Id</th><th>Titre</th><th>Type</th><th>Date de début</th><th>Date de fin</th><th>Niveau</th><th>Itineraire</th><th>Details</th><th>Modifier</th><th>Supprimer</th></tr>  
    <c:forEach var="Mission" items="${list}">
    <tr>  
-   <td>${mission.id}</td>  
-   <td>${mission.titre_mission}</td>  
-   <td>${mission.type_mission}</td>  
-   <td>${mission.date_debut_mission}</td>  
-   <td>${mission.date_fin_mission}</td>
-   <td>${mission.niveau_mission}</td>
-   <td>${mission.itineraire_mission}</td>
-   <td>${mission.detail_mission}</td>        
-   <td><a href="editmission/${mission.id}">Modifier</a></td>  
-   <td><a href="deletemission/${mission.id}">Supprimer</a></td>  
+   <td>${Mission.id}</td>  
+   <td>${Mission.titre_Mission}</td>  
+   <td>${Mission.type_Mission}</td>  
+   <td>${Mission.date_Debut_Mission}</td>  
+   <td>${Mission.date_Fin_Mission}</td>
+   <td>${Mission.niveau_Mission}</td>
+   <td>${Mission.itineraire_Mission}</td>
+   <td>${Mission.detail_Mission}</td>        
+   <td><a href="editmission/${Mission.id}">Modifier</a></td>  
+   <td><a href="deletemission/${Mission.id}">Supprimer</a></td>  
    </tr>  
    </c:forEach>
    </table>  

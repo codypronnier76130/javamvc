@@ -32,24 +32,27 @@ public int save (Mission p) {
 }
 
 public int update (Mission p) {
-	String sql = "update MISSION set titre_mission='"+p.getTitre_Mission()+"', type_mission="+p.getType_Mission()+",date_debut_mission="+p.getDate_Debut_Mission()+",date_fin_mission="+p.getDate_Fin_Mission()+",niveau_mission="+p.getNiveau_Mission()+",itineraire_mission"+p.getItineraire_Mission()+",detail_mission'"+p.getDetail_Mission()+"')";
+	String sql = "UPDATE MISSION set titre_mission='"+p.getTitre_Mission()+"', "
+			+ "type_mission="+p.getType_Mission()+",date_debut_mission="+p.getDate_Debut_Mission()+","
+			+ "date_fin_mission="+p.getDate_Fin_Mission()+",niveau_mission="+p.getNiveau_Mission()+","
+			+ "itineraire_mission"+p.getItineraire_Mission()+",detail_mission'"+p.getDetail_Mission()+"'"
+			+ "where ID_MISSION="+p.getId()+"";
 	return jdbcTemplate.update(sql);
 }
 
 public int delete(int id) {
-	String sql = "delete from MISSION where id="+id+"";
+	String sql = "delete from MISSION where ID_MISSION="+id+"";
 			return jdbcTemplate.update(sql);
 }
 
 public Mission getMissionById(int id) {
-	String sql = "select * from MISSION where id=?";
+	String sql = "SELECT * FROM MISSION where ID_MISSION=?";
 	return jdbcTemplate.queryForObject(sql, new Object[] {id}, new BeanPropertyRowMapper<Mission>(Mission.class));
 }
 	
-	public List<Mission> getAllMission(){
-		return jdbcTemplate.query("select * from MISSION", new RowMapper<Mission>() {
+	public List<Mission> getAllMissions(){
+		return jdbcTemplate.query("SELECT * FROM MISSION", new RowMapper<Mission>() {
 				
-		@Override
 		public Mission mapRow(ResultSet rs, int rowNum) throws SQLException {
 			// TODO Auto-generated method stub
 			Mission mission = new Mission();
