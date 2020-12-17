@@ -46,21 +46,9 @@ public Mission getMissionById(int id) {
 	return jdbcTemplate.queryForObject(sql, new Object[] {id}, new BeanPropertyRowMapper<Mission>(Mission.class));
 }
 	
-	public List<Mission> getAllMissions(int page, int longueurPage){
-		
-        List<Mission> list = new ArrayList<Mission>();
-        
-        try {
-        list = jdbcTemplate.query("SELECT ID_MISSION, TITRE_MISSION, TYPE_MISSION, DATE_DEBUT_MISSION, DATE_FIN_MISSION, NIVEAU_MISSION, ITINERAIRE_MISSION, DETAIL_MISSION FROM MISSION", new Object[] {}, new MissionMapper());
-        }catch(EmptyResultDataAccessException e) {
-            // no result
-        }
-        
-		return list;
-	}
-	
-	private class MissionMapper implements RowMapper<Mission> {
-
+	public List<Mission> getAllMission(){
+		return jdbcTemplate.query("select * from MISSION", new RowMapper<Mission>() {
+				
 		@Override
 		public Mission mapRow(ResultSet rs, int rowNum) throws SQLException {
 			// TODO Auto-generated method stub
@@ -75,6 +63,13 @@ public Mission getMissionById(int id) {
 			mission.setDetail_Mission(rs.getString("DETAIL_MISSION"));
 			
 			return mission;
-		}	
+		}
+	});
+}
+	
+
+	public List<Mission> getAllMissions(int i, int j) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

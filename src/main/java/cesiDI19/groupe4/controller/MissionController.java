@@ -1,7 +1,6 @@
 package cesiDI19.groupe4.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,48 +8,52 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 import cesiDI19.groupe4.bean.Mission;
-import cesiDI19.groupe4.services.MissionServices;
+import cesiDI19.groupe4.dao.MissionDao;
 
 @Controller
 public class MissionController {
 	
 	@Autowired
-	MissionServices missionServices;
+	MissionDao dao;
 	
-	@RequestMapping("/mission")
-    public String mission(@RequestParam(required = false, defaultValue = "World")
-                           String name, Model model){
-		Mission mission = missionServices.getMission();
-		model.addAttribute("mission",mission);
-		
-        return "mission";
-    }
+	@RequestMapping("mission")
+	public String showform(Model m) {
+		m.addAttribute("command", new Mission());
+		return "mission";
+	}
 	
 	@RequestMapping(value ="/save", method = RequestMethod.POST)
 	public String save(@ModelAttribute("mission") Mission mission) {
-		missionServices.save(mission);
+		dao.save(mission);
 		return "redirect:/viewmission"; //redirige vers viewmission request mapping
 	}
 	
 	@RequestMapping("/viewmission")
 	public String viewmission(Model m) {
-		Mission mission = missionServices.getMission();
-		m.addAttribute("mission", mission);
+		List<Mission> list=dao.getAllMission();
+		m.addAttribute("list", list);
 		return "viewmission";
 	}
 	
-	@RequestMapping(value="editsave", method = RequestMethod.POST)
+	@RequestMapping(value="/editmission/{id}")
+	public String edit(@PathVariable int id, Model m) {
+		Mission mission = dao.getMissionById(id);
+		m.addAttribute("command", mission);
+		return "editmission";
+	}
+	
+	@RequestMapping(value="/editsave", method = RequestMethod.POST)
 	public String editsave(@ModelAttribute("mission") Mission mission) {
-		missionServices.update(mission);
+		dao.update(mission);
 		return "redirect:/viewmission";
 	}
 	
-	@RequestMapping(value="deletemission/{id}", method = RequestMethod.GET)
+	@RequestMapping(value="/deletemission/{id}", method = RequestMethod.GET)
 	public String delete(@PathVariable int id) {
-		missionServices.delete(id);
+		dao.delete(id);
 		return"redirect:/viewmission";
 	}
 }

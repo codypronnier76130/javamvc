@@ -8,10 +8,7 @@
 <h1>Ajouter une nouvelle fiche mission</h1>  
        <form:form method="post" action="save">    
         <table >    
-        <tr>  
-        <td></td>    
-         <td><form:hidden  path="id" /></td>  
-         </tr>   
+        
          <tr>    
           <td>Titre </td>   
           <td><form:input path="titre_mission"  /></td>  
@@ -33,13 +30,17 @@
           <td><form:input path="niveau_mission" /></td>  
          </tr>
          <tr>    
-          <td>Itineraire :</td>    
+          <td>Itineraires :</td>    
           <td><form:input path="itineraire_mission" /></td>  
          </tr>
          <tr>    
           <td>Details :</td>    
           <td><form:input path="detail_mission" /></td>  
-         </tr>   
+         </tr>
+         <tr>
+         <td></td>
+         <td><input type="submit" value="Valider" /></td>
+         </tr> 
         </table>    
        </form:form>   
 

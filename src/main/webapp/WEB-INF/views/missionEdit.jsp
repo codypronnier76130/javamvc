@@ -12,7 +12,7 @@
          <td><form:hidden  path="id" /></td>  
          </tr>   
          <tr>    
-          <td>Titre </td>   
+          <td>Titre :</td>   
           <td><form:input path="titre_mission"  /></td>  
          </tr>    
          <tr>    
