@@ -17,21 +17,33 @@ import cesiDI19.groupe4.bean.Civil;
 public class CivilDao {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
-	
-	
-	public List<Civil> getAllCivils(int page, int longueurPage){
-		
-        List<Civil> list = new ArrayList<Civil>();
-        
-        try {
-        list = jdbcTemplate.query("SELECT ID_CIVIL, NOM_CIVIL, PRENOM_CIVIL, DATE_NAISSANCE_CIVIL, ADRESSE_CIVIL, MAIL_CIVIL, TELEPHONE_CIVIL, ACTIF_CIVIL, COMMENTAIRE_CIVIL, DATE_AJOUT_CIVIL, MDP_CIVIL, DATE_DERNIERE_MODIFICATION_CIVIL, DATE_DECES_CIVIL FROM CIVIL", new Object[] {}, new CivilMapper());
-        }catch(EmptyResultDataAccessException e) {
-            // no result
-        }
-        
+
+	public List<Civil> getAllCivils(int page, int longueurPage) {
+
+		List<Civil> list = new ArrayList<Civil>();
+
+		try {
+			list = jdbcTemplate.query(
+					"SELECT ID_CIVIL, NOM_CIVIL, PRENOM_CIVIL, DATE_NAISSANCE_CIVIL, ADRESSE_CIVIL, MAIL_CIVIL, TELEPHONE_CIVIL, ACTIF_CIVIL, COMMENTAIRE_CIVIL, DATE_AJOUT_CIVIL, MDP_CIVIL, DATE_DERNIERE_MODIFICATION_CIVIL, DATE_DECES_CIVIL FROM CIVIL",
+					new Object[] {}, new CivilMapper());
+		} catch (EmptyResultDataAccessException e) {
+			// no result
+		}
+
 		return list;
 	}
-	
+
+	public Civil checklogin(String mail, String mdp) {
+		Civil civil = null;
+		try {
+		 civil = jdbcTemplate.queryForObject("SELECT * FROM CIVIL WHERE MAIL_CIVIL = ? and MDP_CIVIL = ?",
+				new Object[] { mail, mdp }, new CivilMapper());
+		} catch (EmptyResultDataAccessException e) {
+		
+		}
+		return civil;
+	}
+
 	private class CivilMapper implements RowMapper<Civil> {
 
 		@Override
@@ -49,6 +61,6 @@ public class CivilDao {
 			civil.setCommentaires(rs.getString("COMMENTAIRE_CIVIL"));
 
 			return civil;
-		}	
+		}
 	}
 }
