@@ -5,10 +5,13 @@ import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import cesiDI19.groupe4.bean.Mission;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import cesiDI19.groupe4.bean.Civil;
@@ -26,10 +29,16 @@ public class CivilController {
 
 	@RequestMapping("/civil")
 	public String home(@RequestParam(required = false, defaultValue = "World") String name, Model model) {
-		Civil civil = civilServices.getCivil();
+		Civil civil = new Civil();
 		model.addAttribute("civil", civil);
 
 		return "civil";
+	}
+
+	@RequestMapping(value ="/signup", method = RequestMethod.POST)
+	public String save(@ModelAttribute("civil") Civil civil) {
+		civildao.save(civil);
+		return "redirect:/login"; //redirige vers login request mapping
 	}
 
 	@RequestMapping("/login")

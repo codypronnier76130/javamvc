@@ -13,7 +13,9 @@ public class Civil {
     private String TelephoneNumber;
     private Boolean Actifs;
     private String Commentaires;
-    
+    private String Mdp;
+    private Date DateDeces;
+
     public Civil() {
     	
     }
@@ -88,5 +90,17 @@ public class Civil {
 
     public void setCommentaires(String commentaires) {
         Commentaires = commentaires;
+    }
+
+    public String getMdp() {
+        return Mdp;
+    }
+
+    public void setMdp(String Mdp) { this.Mdp = Mdp; }
+
+    public Date getDateDeces() { return DateDeces; }
+
+    public void setDateDeces(Date dateDeces) {
+        DateDeces = dateDeces;
     }
 }
