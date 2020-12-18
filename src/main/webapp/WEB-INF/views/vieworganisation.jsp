@@ -14,9 +14,9 @@
             <td>${Organisation.id}</td>
             <td>${Organisation.nom_Organisation}</td>
             <td>${Organisation.adresse_Organisation}</td>
-            <td>${Organisation.date_Ajout_Organisation}</td>
-            <td>${Organisation.date_Derniere_Modification_Organisation}</td>
             <td>${Organisation.commentaires_Organisation}</td>
+            <td>${Organisation.date_Derniere_Modification_Organisation}</td>
+            <td>${Organisation.date_Ajout_Organisation}</td>
             <td><a href="editorganisation/${Organisation.id}">Modifier</a></td>
             <td><a href="deleteorganisation/${Organisation.id}">Supprimer</a></td>
         </tr>
