@@ -47,15 +47,3 @@
        </form:form>
 
 <a href="viewmission">Voir les missions</a>
-
-
-<!-- <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Mission</title>
-    </head>
-    <body>
-    <h1>Hello <c:out value="${mission.titre_Mission}"></c:out></h1>
-        <p>This is the homepage!</p>
-    </body>
-</html>  -->

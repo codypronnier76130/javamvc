@@ -2,9 +2,13 @@ package cesiDI19.groupe4.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
+import cesiDI19.groupe4.bean.Mission;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -42,6 +46,32 @@ public class CivilDao {
 		
 		}
 		return civil;
+	}
+
+
+	public Civil getCivilById( int idCivil) {
+		Civil civil = null;
+		try {
+			civil = jdbcTemplate.queryForObject("SELECT * FROM CIVIL WHERE ID_CIVIL = ? ",
+					new Object[] { idCivil}, new CivilMapper());
+		} catch (EmptyResultDataAccessException e) {
+
+		}
+		return civil;
+	}
+
+
+	public int save (Civil crt) {
+		String sql = "INSERT INTO CIVIL (ID_CIVIL, NOM_CIVIL, PRENOM_CIVIL, DATE_NAISSANCE_CIVIL, " +
+				"ADRESSE_CIVIL, MAIL_CIVIL, TELEPHONE_CIVIL, COMMENTAIRE_CIVIL, " +
+				"MDP_CIVIL) VALUES (?,?,?,?,?,?,?,?,?)";
+
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		dateFormat.setTimeZone(TimeZone.getDefault());
+
+		return jdbcTemplate.update(sql, crt.getId(), crt.getNom(), crt.getPrenom(), dateFormat.format(crt.getDateNaiss()),
+				crt.getAdresse(), crt.getEmail(), crt.getTelephoneNumber(), crt.getCommentaires(),
+				crt.getMdp());
 	}
 
 	private class CivilMapper implements RowMapper<Civil> {

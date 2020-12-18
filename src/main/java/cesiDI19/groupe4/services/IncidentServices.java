@@ -14,7 +14,7 @@ public class IncidentServices {
 	IncidentDao incidentdao;
 	
 	public Incident getIncident() {
-	List <Incident> listIncident = incidentdao.getAllIncident(0, 20);
+	List <Incident> listIncident = incidentdao.getAllIncident();
 		if (listIncident != null && listIncident.size()>0){
 			return listIncident.get(0);
 		} else {

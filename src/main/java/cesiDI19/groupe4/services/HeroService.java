@@ -15,7 +15,7 @@ public class HeroService {
     HeroDao herodao;
 
     public Heros getHeros() {
-        List <Heros> listHeros = herodao.getAllHeros(0, 20);
+        List <Heros> listHeros = herodao.getAllHeros();
         if (listHeros != null && listHeros.size()>0){
             return listHeros.get(0);
         } else {
@@ -23,19 +23,6 @@ public class HeroService {
         }
     }
 
-    public void createHero(Heros hero) {
-        // TODO Auto-generated method stub
 
-    }
-
-    public void update(Mission mission) {
-        // TODO Auto-generated method stub
-
-    }
-
-    public void delete(int id) {
-        // TODO Auto-generated method stub
-
-    }
 
 }

@@ -4,55 +4,65 @@ import java.util.Date;
 
 public class Incident {
 	
-	private Integer Id;
-    private String DeclarantIncident;
-    private String LieuIncident;
-    private Date AjoutIncident;
-    private String DescriptionIncident;
+	private Integer id;
+    private Integer id_mission;
+    private String declarant_Incident;
+    private String lieu_Incident;
+    private Date ajout_Incident;
+    private String description_Incident;
 	
 	public Incident() {
-    	
+
     }
 
     public Integer getId() {
-        return Id;
+        return id;
     }
     
     public void setId(Integer id) {
-        Id = id;
+        this.id = id;
     }
 
-    public String getDeclarantIncident() {
-        return DeclarantIncident;
+    public String getDeclarant_Incident() {
+        return declarant_Incident;
     }
 
-    public void setDeclarantIncident(String declarantincident) {
-        DeclarantIncident = declarantincident;
-
-    }
-    
-    public String getLieuIncident() {
-        return LieuIncident;
-    }
-
-    public void setLieuIncident(String lieuincident) {
-        LieuIncident = lieuincident;
+    public void setDeclarant_Incident(String declarant_incident) {
+        declarant_Incident = declarant_incident;
 
     }
     
-    public Date getAjoutIncident() {
-        return AjoutIncident;
+    public String getLieu_Incident() {
+        return lieu_Incident;
     }
 
-    public void setAjoutIncident(Date ajoutincident) {
-        AjoutIncident = ajoutincident;
+    public void setLieu_Incident(String lieu_incident) {
+        lieu_Incident = lieu_incident;
+
     }
     
-    public String getDescriptionIncident() {
-        return DescriptionIncident;
+    public Date getDate_Incident() {
+
+	    return ajout_Incident;
     }
 
-    public void setDescriptionIncident(String descriptionincident) {
-        DescriptionIncident = descriptionincident;
+    public void setDate_Incident(Date ajout_incident) {
+        ajout_Incident = ajout_incident;
+    }
+    
+    public String getDescription_Incident() {
+        return description_Incident;
+    }
+
+    public void setDescription_Incident(String description_incident) {
+        description_Incident = description_incident;
+    }
+
+    public Integer getId_mission() {
+        return id_mission;
+    }
+
+    public void setId_mission(Integer id_mission) {
+        this.id_mission = id_mission;
     }
 }
