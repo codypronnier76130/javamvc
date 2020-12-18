@@ -11,6 +11,7 @@ import java.util.TimeZone;
 import cesiDI19.groupe4.bean.Mission;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
@@ -74,6 +75,35 @@ public class CivilDao {
 				crt.getMdp());
 	}
 
+	public int update (Civil crt) {
+		String sql = "UPDATE CIVIL " +
+				"SET " +
+				"NOM_CIVIL=?," +
+				"PRENOM_CIVIL=?," +
+				"DATE_NAISSANCE_CIVIL=?," +
+				"ADRESSE_CIVIL=?," +
+				"MAIL_CIVIL=?," +
+				"TELEPHONE_CIVIL=?," +
+				"COMMENTAIRE_CIVIL=? ," +
+				"MDP_CIVIL=? " +
+				"WHERE ID_CIVIL = ? ";
+
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		dateFormat.setTimeZone(TimeZone.getDefault());
+
+		return jdbcTemplate.update(sql, crt.getNom(), crt.getPrenom(), dateFormat.format(crt.getDateNaiss()),
+				crt.getAdresse(), crt.getEmail(), crt.getTelephoneNumber(), crt.getCommentaires(),
+				crt.getMdp(), crt.getId());
+	}
+
+	public Civil getCivilById(int id) {
+		String sql = "SELECT ID_CIVIL, NOM_CIVIL," +
+				" PRENOM_CIVIL, DATE_NAISSANCE_CIVIL," +
+				" ADRESSE_CIVIL, MAIL_CIVIL, TELEPHONE_CIVIL, ACTIF_CIVIL," +
+				" COMMENTAIRE_CIVIL, MDP_CIVIL FROM CIVIL WHERE ID_CIVIL=?";
+		return jdbcTemplate.queryForObject(sql, new Object[] {id}, new CivilMapper());
+	}
+
 	private class CivilMapper implements RowMapper<Civil> {
 
 		@Override
@@ -89,6 +119,7 @@ public class CivilDao {
 			civil.setTelephoneNumber(rs.getString("TELEPHONE_CIVIL"));
 			civil.setActifs(rs.getBoolean("ACTIF_CIVIL"));
 			civil.setCommentaires(rs.getString("COMMENTAIRE_CIVIL"));
+			civil.setMdp(rs.getString("MDP_CIVIL"));
 
 			return civil;
 		}

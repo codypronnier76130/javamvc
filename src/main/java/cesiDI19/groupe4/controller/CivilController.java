@@ -9,10 +9,7 @@ import cesiDI19.groupe4.bean.Mission;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import cesiDI19.groupe4.bean.Civil;
 import cesiDI19.groupe4.dao.CivilDao;
@@ -35,6 +32,37 @@ public class CivilController {
 		return "civil";
 	}
 
+	@RequestMapping(value="/accueil")
+	public String accueil(HttpServletRequest request, Model m) {
+		HttpSession session = request.getSession();
+		Object Id = session.getAttribute("Id");
+		if (Id != null) {
+			Civil civil = civildao.getCivilById((Integer) Id);
+			m.addAttribute("civil", civil);
+			return "accueil";
+		} else {
+			return "redirect:/login";
+		}
+	}
+
+	@RequestMapping(value="/modifprofil")
+	public String modif(HttpServletRequest request, Model m) {
+		HttpSession session = request.getSession();
+		Object Id = session.getAttribute("Id");
+		Civil civil = civildao.getCivilById((Integer) Id);
+		m.addAttribute("civil", civil);
+		return "modifprofil";
+	}
+
+	@RequestMapping(value="/validmodif", method = RequestMethod.POST)
+	public String validmodif(HttpServletRequest request, @ModelAttribute("civil") Civil civil) {
+		HttpSession session = request.getSession();
+		Object Id = session.getAttribute("Id");
+		civil.setId((Integer) Id);
+		civildao.update(civil);
+		return "redirect:/accueil";
+	}
+
 	@RequestMapping(value ="/signup", method = RequestMethod.POST)
 	public String save(@ModelAttribute("civil") Civil civil) {
 		civildao.save(civil);
@@ -55,7 +83,7 @@ public class CivilController {
 				// Connexion à la session civil
 				HttpSession session = request.getSession();
 				session.setAttribute("Id", civil.getId());
-				return "redirect:/incident";
+				return "redirect:/accueil";
 			} else {
 				// Erreur de connexion
 				model.addAttribute("erreurMessage", "login ou mot de passe incorrect");
