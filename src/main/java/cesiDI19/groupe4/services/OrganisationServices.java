@@ -14,7 +14,7 @@ public class OrganisationServices {
 	OrganisationDao organisationdao;
 	
 	public Organisation getOrganisation() {
-	List <Organisation> listOrganisation = organisationdao.getAllOrganisations(0, 20);
+	List <Organisation> listOrganisation = organisationdao.getAllOrganisations();
 		if (listOrganisation != null && listOrganisation.size()>0){
 			return listOrganisation.get(0);
 		} else {

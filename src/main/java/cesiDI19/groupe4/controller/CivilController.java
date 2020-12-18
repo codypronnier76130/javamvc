@@ -1,7 +1,5 @@
 package cesiDI19.groupe4.controller;
 
-import java.util.logging.Logger;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 

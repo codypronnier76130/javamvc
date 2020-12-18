@@ -27,14 +27,40 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77605caf-5e74-446e-a5d3-c732e8d0af1e" name="Default Changelist" comment="" />
+    <list default="true" id="77605caf-5e74-446e-a5d3-c732e8d0af1e" name="Default Changelist" comment="fix organisation">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/organisationEdit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/vieworganisation.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/groupe4.iml" beforeDir="false" afterPath="$PROJECT_DIR$/groupe4.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cesiDI19/groupe4/bean/Civil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cesiDI19/groupe4/bean/Civil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cesiDI19/groupe4/bean/Mission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cesiDI19/groupe4/bean/Mission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cesiDI19/groupe4/bean/Organisation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cesiDI19/groupe4/bean/Organisation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cesiDI19/groupe4/controller/CivilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cesiDI19/groupe4/controller/CivilController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cesiDI19/groupe4/controller/OrganisationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cesiDI19/groupe4/controller/OrganisationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cesiDI19/groupe4/dao/OrganisationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cesiDI19/groupe4/dao/OrganisationDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cesiDI19/groupe4/services/OrganisationServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cesiDI19/groupe4/services/OrganisationServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/organisation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/organisation.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/viewmission.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/viewmission.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jsp File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/cesiDI19/groupe4/dao/MissionDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/cesiDI19/groupe4/dao/OrganisationDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/vieworganisation.jsp" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -53,12 +79,30 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="http.certificates" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Local Java Avengers" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.41" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -109,6 +153,21 @@
           <option name="PROGRAM_PARAMETERS" value="" />
         </SHUTDOWN>
       </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
         <option name="USE_ENV_VARIABLES" value="true" />
         <STARTUP>
@@ -144,6 +203,8 @@
       <option name="presentableId" value="Default" />
       <updated>1608110452882</updated>
       <workItem from="1608110459926" duration="431000" />
+      <workItem from="1608247547186" duration="9606000" />
+      <workItem from="1608279398371" duration="1414000" />
     </task>
     <servers />
   </component>
@@ -160,71 +221,10 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="938" y="247" key="#BuildArtifactsBeforeRunChooser" timestamp="1608110920775">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="938" y="247" key="#BuildArtifactsBeforeRunChooser/1920.81.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608110920775" />
-    <state x="738" y="429" key="#Tomcat_Server" timestamp="1608110635338">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="738" y="429" key="#Tomcat_Server/1920.81.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608110635338" />
-    <state x="612" y="85" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608112634045">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="612" y="85" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.81.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608112634045" />
-    <state x="765" y="221" key="#com.intellij.ide.util.MemberChooser" timestamp="1608113054789">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="765" y="221" key="#com.intellij.ide.util.MemberChooser/1920.81.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608113054789" />
-    <state width="1293" height="174" key="GridCell.Tab.0.bottom" timestamp="1608113032398">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1293" height="174" key="GridCell.Tab.0.bottom/1920.81.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608113032398" />
-    <state width="1293" height="174" key="GridCell.Tab.0.center" timestamp="1608113032397">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1293" height="174" key="GridCell.Tab.0.center/1920.81.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608113032397" />
-    <state width="1293" height="174" key="GridCell.Tab.0.left" timestamp="1608113032397">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1293" height="174" key="GridCell.Tab.0.left/1920.81.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608113032397" />
-    <state width="1293" height="174" key="GridCell.Tab.0.right" timestamp="1608113032398">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1293" height="174" key="GridCell.Tab.0.right/1920.81.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608113032398" />
-    <state width="1293" height="174" key="GridCell.Tab.1.bottom" timestamp="1608112636145">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1293" height="174" key="GridCell.Tab.1.bottom/1920.81.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608112636145" />
-    <state width="1293" height="174" key="GridCell.Tab.1.center" timestamp="1608112636145">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1293" height="174" key="GridCell.Tab.1.center/1920.81.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608112636145" />
-    <state width="1293" height="174" key="GridCell.Tab.1.left" timestamp="1608112636145">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1293" height="174" key="GridCell.Tab.1.left/1920.81.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608112636145" />
-    <state width="1293" height="174" key="GridCell.Tab.1.right" timestamp="1608112636145">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1293" height="174" key="GridCell.Tab.1.right/1920.81.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608112636145" />
-    <state width="1293" height="174" key="GridCell.Tab.2.bottom" timestamp="1608112636146">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1293" height="174" key="GridCell.Tab.2.bottom/1920.81.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608112636146" />
-    <state width="1293" height="174" key="GridCell.Tab.2.center" timestamp="1608112636146">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1293" height="174" key="GridCell.Tab.2.center/1920.81.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608112636146" />
-    <state width="1293" height="174" key="GridCell.Tab.2.left" timestamp="1608112636145">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1293" height="174" key="GridCell.Tab.2.left/1920.81.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608112636145" />
-    <state width="1293" height="174" key="GridCell.Tab.2.right" timestamp="1608112636146">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1293" height="174" key="GridCell.Tab.2.right/1920.81.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1608112636146" />
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix organisation" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix organisation" />
   </component>
 </project>

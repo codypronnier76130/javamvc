@@ -54,8 +54,8 @@ public class Civil {
         return Adresse;
     }
 
-    public void setAdresse(String addresse) {
-        Adresse = addresse;
+    public void setAdresse(String adresse) {
+        Adresse = adresse;
     }
 
     public String getEmail() {

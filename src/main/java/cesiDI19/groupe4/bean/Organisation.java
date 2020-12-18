@@ -4,66 +4,58 @@ import java.util.Date;
 
 public class Organisation {
 	
-    private Integer Id;
-    private String Nom;
-    private Date AjoutOrg;
-    private Date DerniereModif;
-    private String Adresse;
-    private String Commentaires;
+    private Integer id;
+    private Integer id_civil;
+    private String nom_Organisation;
+    private Date date_Ajout_Organisation;
+    private Date date_Derniere_Modification_Organisation;
+    private String adresse_Organisation;
+    private String commentaires_Organisation;
     
    public Organisation() {
     	
     }
 
    public Integer getId() {
-       return Id;
+       return id;
    }
 
-   public void setId(Integer id) {
-       Id = id;
-   }
+   public void setId(Integer id) { this.id = id; }
    
-   public String getNom() {
-       return Nom;
+   public String getNom_Organisation() {
+       return nom_Organisation;
    }
 
-   public void setNom(String nom) {
-       Nom = nom;
-   }
+   public void setNom_Organisation(String nom_organisation) { nom_Organisation = nom_organisation; }
    
-   public Date getAjoutOrg() {
-       return AjoutOrg;
+   public Date getDate_Ajout_Organisation() {
+       return date_Ajout_Organisation;
    }
 
-   public void setAjoutOrg(Date ajoutOrg) {
-       AjoutOrg = ajoutOrg;
-   }
+   public void setDate_Ajout_Organisation(Date date_ajout_organisation) { date_Ajout_Organisation = date_ajout_organisation; }
    
-   public Date getDerniereModif() {
-       return DerniereModif;
+   public Date getDate_Derniere_Modification_Organisation() {
+       return date_Derniere_Modification_Organisation;
    }
 
-   public void setDerniereModif(Date derniereModif) {
-       DerniereModif = derniereModif;
-   }
-   
-   public String getAdresse() {
-       return Adresse;
-   }
+   public void setDate_Derniere_Modification_Organisation(Date date_derniere_modification_organisation) { date_Derniere_Modification_Organisation = date_derniere_modification_organisation; }
 
-   public void setAdresse(String addresse) {
-       Adresse = addresse;
-   }
-   
-   public String getCommentaires() {
-       return Commentaires;
-   }
+   public String getAdresse_Organisation() { return adresse_Organisation; }
 
-   public void setCommentaires(String commentaires) {
-       Commentaires = commentaires;
-   }
-    
-    
-    
+   public void setAdresse_Organisation(String adresse_organisation) { adresse_Organisation = adresse_organisation; }
+
+   public String getCommentaires_Organisation() { return commentaires_Organisation; }
+
+   public void setCommentaires_Organisation(String commentaires) { commentaires_Organisation = commentaires; }
+
+    public Integer getId_civil() {
+        return id_civil;
+    }
+
+    public void setId_civil(Integer id_civil) {
+        this.id_civil = id_civil;
+    }
+
+
 }
     

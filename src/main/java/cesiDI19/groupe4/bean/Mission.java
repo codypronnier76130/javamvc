@@ -30,19 +30,13 @@ public class Mission {
         return titre_Mission;
     }
 
-    public void setTitre_Mission(String titre_mission) {
-    	titre_Mission = titre_mission;
-
-    }
+    public void setTitre_Mission(String titre_mission) { titre_Mission = titre_mission; }
     
     public String getType_Mission() {
         return type_Mission;
     }
 
-    public void setType_Mission(String type_mission) {
-    	type_Mission = type_mission;
-
-    }
+    public void setType_Mission(String type_mission) { type_Mission = type_mission; }
     
     public Date getDate_Debut_Mission() {
         return date_Debut_Mission;

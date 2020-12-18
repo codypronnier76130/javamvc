@@ -26,5 +26,3 @@
    </table>  
    <br/>  
    <a href="mission">Ajouter une nouvelle mission</a>  
-   
- </html>
