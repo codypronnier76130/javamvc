@@ -69,7 +69,7 @@ public class HeroDao {
                      "NOM_SUPER=?," +
                      "POUVOIR_SUPER=?," +
                      "POINT_FAIBLE_SUPER=?," +
-                     "COMMENTAIRE_SUPER=?," +
+                     "COMMENTAIRE_SUPER=? " +
                      "WHERE ID_SUPER = ?";
 
         return jdbcTemplate.update(sql, p.getNom_Super(), p.getPouvoir_Super()
