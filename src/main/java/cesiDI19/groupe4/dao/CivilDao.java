@@ -48,6 +48,19 @@ public class CivilDao {
 		return civil;
 	}
 
+
+	public Civil getCivilById( int idCivil) {
+		Civil civil = null;
+		try {
+			civil = jdbcTemplate.queryForObject("SELECT * FROM CIVIL WHERE ID_CIVIL = ? ",
+					new Object[] { idCivil}, new CivilMapper());
+		} catch (EmptyResultDataAccessException e) {
+
+		}
+		return civil;
+	}
+
+
 	public int save (Civil crt) {
 		String sql = "INSERT INTO CIVIL (ID_CIVIL, NOM_CIVIL, PRENOM_CIVIL, DATE_NAISSANCE_CIVIL, " +
 				"ADRESSE_CIVIL, MAIL_CIVIL, TELEPHONE_CIVIL, COMMENTAIRE_CIVIL, " +
