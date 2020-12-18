@@ -7,7 +7,6 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.TimeZone;
 
-import com.mysql.cj.util.TimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
