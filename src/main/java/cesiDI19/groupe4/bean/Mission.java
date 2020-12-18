@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class Mission {
 
+    //Initialisation de toutes les valeurs à récupérer
+
     private Integer id;
     private Integer id_incident;
     private String titre_Mission;

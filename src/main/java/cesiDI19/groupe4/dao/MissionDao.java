@@ -27,11 +27,13 @@ public void setTemplate(JdbcTemplate template) {
 	this.jdbcTemplate = template;
 }
 
+//Requête SQL permettant d'ajouter une mission dans la BDD
 public int save (Mission p) {
 	String sql = "INSERT INTO MISSION (ID_INCIDENT, TITRE_MISSION, TYPE_MISSION, DATE_DEBUT_MISSION, " +
 			"DATE_FIN_MISSION, NIVEAU_MISSION, ITINERAIRE_MISSION, DETAIL_MISSION)" +
 			" VALUES (?,?,?,?,?,?,?,?)";
 
+	//Fonction permettant le formatage de la Date en année/mois/jour
 	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	dateFormat.setTimeZone(TimeZone.getDefault());
 
@@ -39,6 +41,7 @@ public int save (Mission p) {
 			dateFormat.format(p.getDate_Fin_Mission()), p.getNiveau_Mission(), p.getItineraire_Mission(), p.getDetail_Mission());
 }
 
+//Requête SQL permettant la modification de la mission via son ID
 public int update (Mission p) {
 	String sql = "UPDATE MISSION " +
 			"SET " +
@@ -51,6 +54,7 @@ public int update (Mission p) {
 			"DETAIL_MISSION=? " +
 			"WHERE ID_MISSION = ?";
 
+	//Fonction permettant le formatage de la Date en année/mois/jour
 	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	dateFormat.setTimeZone(TimeZone.getDefault());
 
@@ -58,17 +62,20 @@ public int update (Mission p) {
 			dateFormat.format(p.getDate_Fin_Mission()), p.getNiveau_Mission(), p.getItineraire_Mission(), p.getDetail_Mission(), p.getId());
 }
 
+
+//Requête SQL permettant la suppresion de la mission via son ID
 public int delete(int id) {
 	String sql = "delete from MISSION where ID_MISSION="+id+"";
 			return jdbcTemplate.update(sql);
 }
 
+//Requête SQL permettant de récupérer les données de la table Mission
 public Mission getMissionById(int id) {
 	String sql = "SELECT ID_MISSION as ID, ID_RAPPORT, ID_INCIDENT, TITRE_MISSION, TYPE_MISSION, DATE_DEBUT_MISSION, " +
 			"DATE_FIN_MISSION, NIVEAU_MISSION, ITINERAIRE_MISSION, DETAIL_MISSION FROM MISSION where ID_MISSION=?";
 	return jdbcTemplate.queryForObject(sql, new Object[] {id}, new BeanPropertyRowMapper<Mission>(Mission.class));
 }
-	
+	//Requête SQL permettant de faire le lien avec la BDD
 	public List<Mission> getAllMissions(){
 		return jdbcTemplate.query("SELECT * FROM MISSION", new RowMapper<Mission>() {
 				

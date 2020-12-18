@@ -18,6 +18,8 @@ import org.springframework.stereotype.Component;
 
 import cesiDI19.groupe4.bean.Civil;
 
+
+//Création fonction récupération de tous les civils de la BDD
 @Component
 public class CivilDao {
 	@Autowired
@@ -37,7 +39,8 @@ public class CivilDao {
 
 		return list;
 	}
-
+	
+	//Création de la fonction pour check si le login et mdp correspondent dans la BDD
 	public Civil checklogin(String mail, String mdp) {
 		Civil civil = null;
 		try {
@@ -49,7 +52,7 @@ public class CivilDao {
 		return civil;
 	}
 
-
+	//Création d'une fonction qui récupère l'ID d'un civil
 	public Civil getCivilById( int idCivil) {
 		Civil civil = null;
 		try {
@@ -69,7 +72,7 @@ public class CivilDao {
 		return jdbcTemplate.queryForObject(sql, new Object[] {id}, new CivilMapper());
 	}
 
-
+	//Création d'une fonction pour ajouter un compte dans la BDD
 	public int save (Civil crt) {
 		String sql = "INSERT INTO CIVIL (ID_CIVIL, NOM_CIVIL, PRENOM_CIVIL, DATE_NAISSANCE_CIVIL, " +
 				"ADRESSE_CIVIL, MAIL_CIVIL, TELEPHONE_CIVIL, COMMENTAIRE_CIVIL, " +
@@ -82,7 +85,8 @@ public class CivilDao {
 				crt.getAdresse(), crt.getEmail(), crt.getTelephoneNumber(), crt.getCommentaires(),
 				crt.getMdp());
 	}
-
+	
+	//Création d'une fonction pour mettre à jour son profil
 	public int update (Civil crt) {
 		String sql = "UPDATE CIVIL " +
 				"SET " +

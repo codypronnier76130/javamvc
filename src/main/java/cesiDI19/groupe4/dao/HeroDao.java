@@ -32,7 +32,7 @@ public class HeroDao {
 
 
 
-
+    // Fonction création héros et requète SQL INSERT
     public int createHero (final int idCivil, Heros p) {
             PreparedStatementCreator psc = new PreparedStatementCreator() {
 
@@ -62,7 +62,8 @@ public class HeroDao {
             return jdbcTemplate.update(sql, heroId, p.getNom_Super(), p.getPouvoir_Super(),
                     p.getPoint_Faible(), p.getCommentaire_Super());
     }
-
+    
+    //Création de la requête SQL pour update le héros
     public int updateHero (Heros p) {
         String sql = "UPDATE SUPER " +
                      "SET " +
@@ -78,19 +79,19 @@ public class HeroDao {
 
 
 
-
+    //Fonction qui récupère l'ID du héros
     public Heros getHeroById(int id) {
         String sql = "SELECT HEROS.ID_HEROS,HEROS.ID_CIVIL,SUPER.ID_SUPER,NOM_CIVIL,PRENOM_CIVIL,DATE_NAISSANCE_CIVIL,ADRESSE_CIVIL,MAIL_CIVIL,TELEPHONE_CIVIL,ACTIF_CIVIL,COMMENTAIRE_CIVIL,NOM_SUPER,POUVOIR_SUPER,POINT_FAIBLE_SUPER,COMMENTAIRE_SUPER FROM HEROS INNER JOIN CIVIL ON (HEROS.ID_CIVIL = CIVIL.ID_CIVIL) INNER JOIN SUPER ON (HEROS.ID_HEROS = SUPER.ID_HEROS)  where ID_HEROS=?";
         return jdbcTemplate.queryForObject(sql, new Object[] {id}, new BeanPropertyRowMapper<Heros>(Heros.class));
     }
 
-
+    //Fonciton qui récupère l'ID du SUPER
     public Heros getSuperById(int id) {
         String sql = "SELECT ID_SUPER,NOM_SUPER,POUVOIR_SUPER,POINT_FAIBLE_SUPER,COMMENTAIRE_SUPER FROM SUPER WHERE ID_SUPER=?";
         return jdbcTemplate.queryForObject(sql, new Object[] {id}, new BeanPropertyRowMapper<Heros>(Heros.class));
     }
 
-
+    //Fonction pour récupérer tous les héros de la BDD
     public List<Heros> getAllHeros(){
         return jdbcTemplate.query("SELECT HEROS.ID_HEROS,HEROS.ID_CIVIL,SUPER.ID_SUPER,NOM_CIVIL,PRENOM_CIVIL,DATE_NAISSANCE_CIVIL,ADRESSE_CIVIL,MAIL_CIVIL,TELEPHONE_CIVIL,ACTIF_CIVIL,COMMENTAIRE_CIVIL,NOM_SUPER,POUVOIR_SUPER,POINT_FAIBLE_SUPER,COMMENTAIRE_SUPER FROM HEROS INNER JOIN CIVIL ON (HEROS.ID_CIVIL = CIVIL.ID_CIVIL) INNER JOIN SUPER ON (HEROS.ID_HEROS = SUPER.ID_HEROS)", new RowMapper<Heros>() {
 

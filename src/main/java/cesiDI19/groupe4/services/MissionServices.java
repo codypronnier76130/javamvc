@@ -12,7 +12,8 @@ import cesiDI19.groupe4.dao.MissionDao;
 public class MissionServices {
 	@Autowired
 	MissionDao missionDao;
-	
+
+	//Récupère la liste de toutes les missions
 	public Mission getMission() {
 	List <Mission> listMission = missionDao.getAllMissions();
 		if (listMission != null && listMission.size()>0){
@@ -21,5 +22,4 @@ public class MissionServices {
 			return null;
 		}
 	}
-
 }

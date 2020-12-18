@@ -3,7 +3,8 @@ package cesiDI19.groupe4.bean;
 import java.util.Date;
 
 public class Incident {
-	
+
+    //Initialisation de toutes les valeurs à récupérer
 	private Integer id;
     private Integer id_mission;
     private String declarant_Incident;

@@ -29,7 +29,8 @@ public class CivilController {
 
 		return "civil";
 	}
-
+	
+	//Création mapping page accueil et récupération de l'Id pour profil
 	@RequestMapping(value="/accueil")
 	public String accueil(HttpServletRequest request, Model m) {
 		HttpSession session = request.getSession();
@@ -42,7 +43,7 @@ public class CivilController {
 			return "redirect:/login";
 		}
 	}
-
+	//Création Mapping modif profil 
 	@RequestMapping(value="/modifprofil")
 	public String modif(HttpServletRequest request, Model m) {
 		HttpSession session = request.getSession();
@@ -51,23 +52,26 @@ public class CivilController {
 		m.addAttribute("civil", civil);
 		return "modifprofil";
 	}
-
+	
+	//Création mapping validmodif
 	@RequestMapping(value="/validmodif", method = RequestMethod.POST)
 	public String validmodif(HttpServletRequest request, @ModelAttribute("civil") Civil civil) {
 		HttpSession session = request.getSession();
 		Object Id = session.getAttribute("Id");
 		civil.setId((Integer) Id);
 		civildao.update(civil);
-		return "redirect:/accueil";
+		return "redirect:/accueil"; //redirection Accueil
 	}
-
+	
+	
 	@RequestMapping(value ="/signup", method = RequestMethod.POST)
 	public String save(@ModelAttribute("civil") Civil civil) {
 		civildao.save(civil);
 		return "redirect:/login"; //redirige vers login request mapping
 	}
-
-	@RequestMapping("/login")
+	
+	//Mapping pour se connecter à l'appli web
+	@RequestMapping("/login") 
 	public String login(HttpServletRequest request, @RequestParam(required = false) String mail,
 			@RequestParam(required = false) String mdp, Model model) {
 		
@@ -78,7 +82,7 @@ public class CivilController {
 			Civil civil = civildao.checklogin(mail, mdp);
 			model.addAttribute("civil", civil);
 			if (civil != null) {
-				// Connexion � la session civil
+				// Connexion à la session civil
 				HttpSession session = request.getSession();
 				session.setAttribute("Id", civil.getId());
 				return "redirect:/accueil";
