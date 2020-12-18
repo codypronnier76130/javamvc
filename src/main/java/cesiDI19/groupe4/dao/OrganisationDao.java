@@ -40,13 +40,13 @@ public int save (Organisation o) {
 
 
 public int update (Organisation o){
-	String sql = "UPDATE ORGANISATION" +
-			"SET" +
+	String sql = "UPDATE ORGANISATION " +
+			"SET " +
 			"NOM_ORGANISATION = ?," +
 			"ADRESSE_ORGANISATION = ?," +
 			"COMMENTAIRE_ORGANISATION = ?," +
 			"DATE_AJOUT_ORGANISATION = ?," +
-			"DATE_DERNIERE_MODIFICATION_ORGANISATION = ?," +
+			"DATE_DERNIERE_MODIFICATION_ORGANISATION = ? " +
 			"WHERE ID_ORGANISATION = ?";
 
 	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
