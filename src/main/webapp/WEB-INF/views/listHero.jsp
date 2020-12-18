@@ -4,11 +4,11 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<title>Liste des Missions</title>
-<h1>Liste des missions</h1>
+<title>Liste des Heros</title>
+<h1>Liste des Heros</h1>
 <table border="2" width="70%" cellpadding="2">
 
-    <tr><th>Id</th><th>Nom</th><th>Prenom</th><th>Adresse</th><th>Date de Naissance</th><th>Email</th><th>Telephone</th><th>Actif</th><th>Commentaire</th><th>Super Nom </th><th>Pouvoir</th><th>Point faible</th><th>Commentaire Super</th><th>Modifier</th><th>Supprimer</th></tr>
+    <tr><th>Id</th><th>Nom</th><th>Prenom</th><th>Adresse</th><th>Date de Naissance</th><th>Email</th><th>Telephone</th><th>Actif</th><th>Commentaire</th><th>Super Nom </th><th>Pouvoir</th><th>Point faible</th><th>Commentaire Super</th><th>Modifier</th></tr>
     <c:forEach var="Heros" items="${list}">
         <tr>
             <td>${Heros.id}</td>

@@ -48,9 +48,9 @@ public class HeroController {
         return "redirect:/listHeros"; //redirige vers viewmission request mapping
     }
 
-    @RequestMapping(value="/updateHeroForm/{id}")
-    public String updateHero(@PathVariable int id, Model m) {
-        Heros hero = dao.getSuperById(id);
+    @RequestMapping(value="/updateHeroForm/{id_Super}")
+    public String updateHero(@PathVariable int id_Super, Model m) {
+        Heros hero = dao.getSuperById(id_Super);
         m.addAttribute("hero", hero);
         return "updateHero";
     }
