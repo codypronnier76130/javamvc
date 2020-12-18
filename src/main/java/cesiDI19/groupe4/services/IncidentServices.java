@@ -12,7 +12,8 @@ import cesiDI19.groupe4.dao.IncidentDao;
 public class IncidentServices {
 	@Autowired
 	IncidentDao incidentdao;
-	
+
+	//Récupère la liste de toutes les missions
 	public Incident getIncident() {
 	List <Incident> listIncident = incidentdao.getAllIncident();
 		if (listIncident != null && listIncident.size()>0){

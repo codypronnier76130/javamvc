@@ -27,11 +27,13 @@ public class IncidentDao {
 		this.jdbcTemplate = template;
 	}
 
+	//Requête SQL permettant d'ajouter un incident dans la BDD
 	public int saveincident (Incident p) {
 		String sql = "INSERT INTO INCIDENT (ID_MISSION, DECLARANT_INCIDENT, LIEU_INCIDENT," +
 				" DATE_INCIDENT, DESCRIPTION_INCIDENT)" +
 				" VALUES (?,?,?,?,?)";
 
+		//Fonction permettant le formatage de la Date en année/mois/jour
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		dateFormat.setTimeZone(TimeZone.getDefault());
 
@@ -39,6 +41,7 @@ public class IncidentDao {
 				dateFormat.format(p.getDate_Incident()), p.getDescription_Incident());
 	}
 
+	//Requête SQL permettant la modification de l'incident via son ID
 	public int update (Incident p) {
 		String sql = "UPDATE INCIDENT " +
 				"SET " +
@@ -48,6 +51,7 @@ public class IncidentDao {
 				"DESCRIPTION_INCIDENT=? " +
 				"WHERE ID_INCIDENT = ?";
 
+		//Fonction permettant le formatage de la Date en année/mois/jour
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		dateFormat.setTimeZone(TimeZone.getDefault());
 
@@ -55,17 +59,20 @@ public class IncidentDao {
 				dateFormat.format(p.getDate_Incident()), p.getDescription_Incident(),p.getId());
 	}
 
+	//Requête SQL permettant la suppresion de l'incident via son ID
 	public int delete(int id) {
 		String sql = "delete from INCIDENT where ID_INCIDENT="+id+"";
 		return jdbcTemplate.update(sql);
 	}
 
+	//Requête SQL permettant de récupérer les données de la table Incident
 	public Incident getIncidentById(int id) {
 		String sql = "SELECT ID_INCIDENT as ID, ID_SATISFACTION, ID_MISSION, DECLARANT_INCIDENT, LIEU_INCIDENT," +
 				" DATE_INCIDENT,DESCRIPTION_INCIDENT FROM INCIDENT where ID_INCIDENT=?";
 		return jdbcTemplate.queryForObject(sql, new Object[] {id}, new BeanPropertyRowMapper<Incident>(Incident.class));
 	}
 
+	//Requête SQL permettant de faire le lien avec la BDD
 	public List<Incident> getAllIncident(){
 		return jdbcTemplate.query("SELECT * FROM INCIDENT", new RowMapper<Incident>() {
 
