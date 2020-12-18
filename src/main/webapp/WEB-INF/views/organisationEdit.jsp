@@ -7,7 +7,7 @@
 <Title>Modification de l'organisation</Title>
 
 <h1>Modifier la fiche de l'organisation</h1>
-<form:form method="post" action="${pageContext.request.contextPath}/editsave" modelAttribute="organisation">
+<form:form method="post" action="${pageContext.request.contextPath}/editsaveorganisation" modelAttribute="organisation">
     <form:hidden path="id"  />
     <form:hidden path="id_civil"  />
     <table >

@@ -7,7 +7,7 @@
 
 <title>Modification de l'Organisation</title>
 <h1>Ajouter une nouvelle organisation</h1>
-<form:form method="post" action="save" modelAttribute="organisation">
+<form:form method="post" action="saveorganisation" modelAttribute="organisation">
     <form:hidden path="id_civil"  />
     <table >
 

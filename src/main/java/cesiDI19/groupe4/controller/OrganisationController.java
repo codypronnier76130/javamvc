@@ -29,7 +29,7 @@ public class OrganisationController {
 		return "organisation";
 	}
 
-	@RequestMapping(value="/save", method = RequestMethod.POST)
+	@RequestMapping(value="/saveorganisation", method = RequestMethod.POST)
 	public String save(@ModelAttribute("organisation") Organisation organisation) {
 		dao.save(organisation);
 		return "redirect:/vieworganisation";//redirige vers vieworganisation request mapping
@@ -49,7 +49,7 @@ public class OrganisationController {
 		return "organisationEdit";
 	}
 
-	@RequestMapping(value="/editsave", method = RequestMethod.POST)
+	@RequestMapping(value="/editsaveorganisation", method = RequestMethod.POST)
 	public String editsave(@ModelAttribute("organisation") Organisation organisation) {
 		dao.update(organisation);
 		return "redirect:/vieworganisation";
