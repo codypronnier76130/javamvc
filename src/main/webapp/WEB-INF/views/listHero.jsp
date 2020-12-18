@@ -33,5 +33,5 @@
     </c:forEach>
 </table>
 <br/>
-
+    <a href="formHero">Ajouter un hero</a>
 </html>

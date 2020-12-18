@@ -2,6 +2,7 @@ package cesiDI19.groupe4.services;
 
 import java.util.List;
 
+import cesiDI19.groupe4.bean.Heros;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +15,7 @@ public class VilainServices {
     VilainDao vilaindao;
 
     public Vilain getVilains() {
-        List <Vilain> listVilains = vilaindao.getAllVilains(0, 20);
+        List <Vilain> listVilains = vilaindao.getAllVilains();
         if (listVilains != null && listVilains.size()>0){
             return listVilains.get(0);
         } else {

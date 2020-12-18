@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.TimeZone;
 
 import cesiDI19.groupe4.bean.Mission;
+import cesiDI19.groupe4.bean.Vilain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -94,7 +95,6 @@ public class HeroDao {
     //Fonction pour récupérer tous les héros de la BDD
     public List<Heros> getAllHeros(){
         return jdbcTemplate.query("SELECT HEROS.ID_HEROS,HEROS.ID_CIVIL,SUPER.ID_SUPER,NOM_CIVIL,PRENOM_CIVIL,DATE_NAISSANCE_CIVIL,ADRESSE_CIVIL,MAIL_CIVIL,TELEPHONE_CIVIL,ACTIF_CIVIL,COMMENTAIRE_CIVIL,NOM_SUPER,POUVOIR_SUPER,POINT_FAIBLE_SUPER,COMMENTAIRE_SUPER FROM HEROS INNER JOIN CIVIL ON (HEROS.ID_CIVIL = CIVIL.ID_CIVIL) INNER JOIN SUPER ON (HEROS.ID_HEROS = SUPER.ID_HEROS)", new RowMapper<Heros>() {
-
             public Heros mapRow(ResultSet rs, int rowNum) throws SQLException {
                 // TODO Auto-generated method stub
                 Heros hero = new Heros();
