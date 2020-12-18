@@ -8,7 +8,7 @@
 <h1>Liste des organisations</h1>
 <table border="2" width="70%" cellpadding="2">
 
-    <tr><th>Id</th><th>Nom</th><th>Adresse</th><th>Commentaires</th><th>Date d'ajout</th><th>Derniere modification</th><th>Modifier</th><th>Supprimer</th></tr>
+    <tr><th>Id</th><th>Nom</th><th>Adresse</th><th>Commentaires</th><th>Date d'ajout</th><th>Derniere modification</th><th>Rejoindre</th><th>Modifier</th><th>Supprimer</th></tr>
     <c:forEach var="Organisation" items="${list}">
         <tr>
             <td>${Organisation.id}</td>
@@ -17,6 +17,7 @@
             <td>${Organisation.commentaires_Organisation}</td>
             <td>${Organisation.date_Derniere_Modification_Organisation}</td>
             <td>${Organisation.date_Ajout_Organisation}</td>
+            <td><a href="rejoindreorganisation/${Organisation.id_civil}">Rejoindre</a></td>
             <td><a href="editorganisation/${Organisation.id}">Modifier</a></td>
             <td><a href="deleteorganisation/${Organisation.id}">Supprimer</a></td>
         </tr>
