@@ -4,8 +4,8 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<title>Liste des Missions</title>
-<h1>Liste des missions</h1>
+<title>Liste des Heros</title>
+<h1>Liste des Heros</h1>
 <table border="2" width="70%" cellpadding="2">
 
     <tr><th>Id</th><th>Titre</th><th>Type</th><th>Date de debut</th><th>Date de fin</th><th>Niveau</th><th>Itineraire</th><th>Details</th><th>Modifier</th><th>Supprimer</th></tr>

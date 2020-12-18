@@ -12,19 +12,19 @@
     <table >
 
         <tr>
-            <td>nom_Super : </td>
+            <td>nom Super : </td>
             <td><form:input path="nom_Super"  /></td>
         </tr>
         <tr>
-            <td>pouvoir_Super :</td>
+            <td>pouvoir Super :</td>
             <td><form:input path="pouvoir_Super" /></td>
         </tr>
         <tr>
-            <td>point_Faible :</td>
+            <td>point Faible :</td>
             <td><form:input path="point_Faible" /></td>
         </tr>
         <tr>
-            <td>commentaire_Super :</td>
+            <td>commentaire Super :</td>
             <td><form:input path="commentaire" /></td>
         </tr>
         <tr>
