@@ -21,7 +21,7 @@ public class HeroController {
 
     HeroDao dao;
 
-
+    //Mapping pour aller sur la page liste héros
     @RequestMapping("/listHeros")
     public String listHeros(Model m) {
         List<Heros> list=dao.getAllHeros();
@@ -29,7 +29,7 @@ public class HeroController {
         return "listHero";
     }
 
-
+    //Mapping pour aller sur la page pour s'inscrire comme héros
     @RequestMapping("/formHero")
     public String formHero(Model m) {
         Heros hero = new Heros();
@@ -39,7 +39,8 @@ public class HeroController {
         m.addAttribute("hero", hero);
         return "fromHero";
     }
-
+    
+    //Mapping pour création héros
     @RequestMapping(value ="/createHero", method = RequestMethod.POST)
     public String createHero(HttpServletRequest request,@ModelAttribute("hero") Heros hero) {
         HttpSession session = request.getSession();
@@ -47,14 +48,14 @@ public class HeroController {
         dao.createHero((Integer) session.getAttribute("Id"),hero);
         return "redirect:/listHeros"; //redirige vers viewmission request mapping
     }
-
+    //Mapping pour update héros
     @RequestMapping(value="/updateHeroForm/{id_Super}")
     public String updateHero(@PathVariable int id_Super, Model m) {
         Heros hero = dao.getSuperById(id_Super);
         m.addAttribute("hero", hero);
         return "updateHero";
     }
-
+    //Mapping pour valider update héros
     @RequestMapping(value="/updateHero", method = RequestMethod.POST)
     public String updateHero(@ModelAttribute("hero") Heros hero) {
         dao.updateHero(hero);
