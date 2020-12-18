@@ -18,7 +18,8 @@ public class MissionController {
 	
 	@Autowired
 	MissionDao dao;
-	
+
+	//Route vers l'ajout d'une fiche mission
 	@RequestMapping("mission")
 	public String showform(Model m) {
 		Mission mission = new Mission();
@@ -28,20 +29,23 @@ public class MissionController {
 		m.addAttribute("mission", mission);
 		return "mission";
 	}
-	
+
+	//Redirection vers la page de la liste des missions une fois l'ajout d'une mission
 	@RequestMapping(value ="/save", method = RequestMethod.POST)
 	public String save(@ModelAttribute("mission") Mission mission) {
 		dao.save(mission);
 		return "redirect:/viewmission"; //redirige vers viewmission request mapping
 	}
-	
+
+	//Route vers la liste des missions
 	@RequestMapping("/viewmission")
 	public String viewmission(Model m) {
 		List<Mission> list=dao.getAllMissions();
 		m.addAttribute("list", list);
 		return "viewmission";
 	}
-	
+
+	//Modification de la mission sélectionnée via l'Id de celle-ci
 	@RequestMapping(value="/editmission/{id}")
 	public String edit(@PathVariable int id, Model m) {
 		Mission mission = dao.getMissionById(id);
@@ -49,12 +53,14 @@ public class MissionController {
 		return "missionEdit";
 	}
 
+	//Redirection vers la liste des missions, une fois la modification de la mission via son ID
 	@RequestMapping(value="/editsave", method = RequestMethod.POST)
 	public String editsave(@ModelAttribute("mission") Mission mission) {
 		dao.update(mission);
 		return "redirect:/viewmission";
 	}
-	
+
+	//Redirection vers la liste des missions, une fois la suppression de la mission sélectionnée
 	@RequestMapping(value="/deletemission/{id}", method = RequestMethod.GET)
 	public String delete(@PathVariable int id) {
 		dao.delete(id);
