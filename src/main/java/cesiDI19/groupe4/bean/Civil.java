@@ -1,7 +1,7 @@
 package cesiDI19.groupe4.bean;
 
 import java.util.Date;
-
+//Création class Civil + variables
 public class Civil {
 	
     private Integer Id;
