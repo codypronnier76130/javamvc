@@ -61,6 +61,14 @@ public class CivilDao {
 		return civil;
 	}
 
+	public Civil getCivById(int id) {
+		String sql = "SELECT ID_CIVIL, NOM_CIVIL," +
+				" PRENOM_CIVIL, DATE_NAISSANCE_CIVIL," +
+				" ADRESSE_CIVIL, MAIL_CIVIL, TELEPHONE_CIVIL, ACTIF_CIVIL," +
+				" COMMENTAIRE_CIVIL, MDP_CIVIL FROM CIVIL WHERE ID_CIVIL=?";
+		return jdbcTemplate.queryForObject(sql, new Object[] {id}, new CivilMapper());
+	}
+
 
 	public int save (Civil crt) {
 		String sql = "INSERT INTO CIVIL (ID_CIVIL, NOM_CIVIL, PRENOM_CIVIL, DATE_NAISSANCE_CIVIL, " +
@@ -96,13 +104,7 @@ public class CivilDao {
 				crt.getMdp(), crt.getId());
 	}
 
-	public Civil getCivilById(int id) {
-		String sql = "SELECT ID_CIVIL, NOM_CIVIL," +
-				" PRENOM_CIVIL, DATE_NAISSANCE_CIVIL," +
-				" ADRESSE_CIVIL, MAIL_CIVIL, TELEPHONE_CIVIL, ACTIF_CIVIL," +
-				" COMMENTAIRE_CIVIL, MDP_CIVIL FROM CIVIL WHERE ID_CIVIL=?";
-		return jdbcTemplate.queryForObject(sql, new Object[] {id}, new CivilMapper());
-	}
+
 
 	private class CivilMapper implements RowMapper<Civil> {
 

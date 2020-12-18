@@ -37,7 +37,7 @@ public class CivilController {
 		HttpSession session = request.getSession();
 		Object Id = session.getAttribute("Id");
 		if (Id != null) {
-			Civil civil = civildao.getCivilById((Integer) Id);
+			Civil civil = civildao.getCivById((Integer) Id);
 			m.addAttribute("civil", civil);
 			return "accueil";
 		} else {
@@ -49,7 +49,7 @@ public class CivilController {
 	public String modif(HttpServletRequest request, Model m) {
 		HttpSession session = request.getSession();
 		Object Id = session.getAttribute("Id");
-		Civil civil = civildao.getCivilById((Integer) Id);
+		Civil civil = civildao.getCivById((Integer) Id);
 		m.addAttribute("civil", civil);
 		return "modifprofil";
 	}
